@@ -1,12 +1,18 @@
 import "./Navbar-Footer.css";
 import Logo from "../assets/logo.png";
 import Cart from "../assets/cart.png";
+import { useNavigate } from "react-router-dom";
 
-export function Navbar() {
+function Navbar({ cartItemsNumber, handleShow}) {
+  const navigate = useNavigate();
+
+  function handleLanding() {
+    navigate("/");
+  }
   return (
     <nav className="navbar d-flex flex-nowrap">
       <div className="container-fluid">
-        <a className="navbar-brand" href=" # ">
+        <a className="navbar-brand" href=" # " onClick={handleLanding}>
           <img
             src={Logo}
             width={30}
@@ -20,14 +26,18 @@ export function Navbar() {
       <div className="container-fluid justify-content-end">
         <a href=" # ">
           <img
+            onClick={() => handleShow()}
             src={Cart}
             width={26}
             height={26}
             className="d-inline-block align-top me-4"
             alt="Logo"
           />
+          <div className="cartNum">{cartItemsNumber}</div> 
         </a>
       </div>
     </nav>
   );
 }
+
+export default Navbar;
