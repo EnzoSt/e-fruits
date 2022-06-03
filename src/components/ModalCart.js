@@ -9,8 +9,8 @@ const ModalCart = ({ data, handleClose }) => {
   const { cart, onRemove } = useContext(CartContext);
   return (
     <Modal.Dialog className="position-fixed">
-      <div class="modal-header">
-        <h5 class="modal-title">Carrello:</h5>
+      <div className="modal-header">
+        <h5 className="modal-title">Carrello:</h5>
       </div>
       {cart.length === 0 ? <h5 className="m-3 text-center">Non ci sono prodotti</h5> : cart.map((el, i) => (
         <div key={i} className="d-flex ">
